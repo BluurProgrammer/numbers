@@ -39,7 +39,8 @@ function toExtensive(number)
  
     extensive = `${negativo} ${extensive}`;
     extensive = removeConectorEDuplicado(extensive);
-    return extensive.trim();
+
+    return extensive;
 }
 
 function trata2Numeros(numberText)
@@ -53,8 +54,8 @@ function trata2Numeros(numberText)
     }
     else
     {
-        let n1 = numberText.charAt(0); // centena
-        let n2 = numberText.charAt(1); // dezena
+        let n1 = numberText.charAt(0); 
+        let n2 = numberText.charAt(1);
         
         let und    = `${dezenas[n1]}`;
         let dezena = `${unidades[n2]}`;
@@ -66,10 +67,6 @@ function trata2Numeros(numberText)
                 dezena = `${dezena}`;
                 und    = `${und} e`;
             }
-            //else
-            //{
-              //  dezena = '';
-            //}   
         }
 
         extensive = `${und} ${dezena}`;
@@ -82,9 +79,9 @@ function trata3Numeros(numberText)
 {
     let extensive = '';
 
-    let n1 = numberText.charAt(0); // centena
-    let n2 = numberText.charAt(1); // dezena
-    let n3 = numberText.charAt(2); // und
+    let n1 = numberText.charAt(0); 
+    let n2 = numberText.charAt(1); 
+    let n3 = numberText.charAt(2); 
 
     if ( (n1 > 0 && n1 < 10) && n2 == 0 && n3 == 0)
     {
@@ -124,17 +121,17 @@ function trata4Numeros(numberText)
 {
     let extensive = '';
 
-    let n1 = numberText.charAt(0); // centena
-    let n2 = numberText.charAt(1); // dezena
-    let n3 = numberText.charAt(2); // und
-    let n4 = numberText.charAt(3); // milhar
+    let n1 = numberText.charAt(0);
+    let n2 = numberText.charAt(1); 
+    let n3 = numberText.charAt(2); 
+    let n4 = numberText.charAt(3); 
     
     extensive = (n1 == 1) ? milhar[n1] : `${unidades[n1]} mil`;
 
     if ( n2 > 0 || n3 > 0 || n4 > 0)
     {
         let casasRestantes = trata3Numeros(n2+n3+n4);
-
+        
         extensive = `${extensive} ${casasRestantes}`;
     }
    
