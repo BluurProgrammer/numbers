@@ -26,10 +26,12 @@ node server.js ou npm start
 # Docker
 
   O projeto pode ser executado através dos comandos
-  
+
     docker build -t extensive_numbers_dockernode .
     docker run -p 3000:3000 -d extensive_numbers_dockernode
 
+    http://192.168.99.100:3000/  ou http://localhost:3000/1340
+    
 # Configurando servidor
 
 No arquivo server.js foi configurado para que o servidor escute as requisições na porta 3000, para usar localmente e sem o uso do DOCKER, altere a constante HOST para localhost ou 127.0.0.1
