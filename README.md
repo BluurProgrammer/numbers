@@ -21,9 +21,20 @@ Mac OS (10.10.5)
 
 Comando:
 
-node server.js
+node server.js ou npm start
 
-No arquivo server.js foi configurado para que o servidor escute as requisições na porta 3000 e em localhost.
+# Docker
+
+  O projeto pode ser executado através dos comandos
+  
+    docker build -t extensive_numbers_dockernode .
+    docker run -p 3000:3000 -d extensive_numbers_dockernode
+
+# Configurando servidor
+
+No arquivo server.js foi configurado para que o servidor escute as requisições na porta 3000, para usar localmente e sem o uso do DOCKER, altere a constante HOST para localhost ou 127.0.0.1
+
+Caso execute a aplicação através do DOCKER utilize a configuração do HOST 0.0.0.0
 
 # Exemplos de uso:
 
