@@ -23,7 +23,7 @@ function toExtensive(number)
 
     number = Math.abs(number);
 
-    const numberText = number.toString();
+    const numberText = number.toString();``
     
     let extensive = '';
 
@@ -40,7 +40,7 @@ function toExtensive(number)
     extensive = `${negativo} ${extensive}`;
     extensive = removeConectorEDuplicado(extensive);
 
-    return extensive;
+    return extensive.trim();
 }
 
 function trata2Numeros(numberText)
@@ -66,6 +66,10 @@ function trata2Numeros(numberText)
             {
                 dezena = `${dezena}`;
                 und    = `${und} e`;
+            }
+            else
+            {
+                dezena = '';
             }
         }
 
@@ -103,11 +107,17 @@ function trata3Numeros(numberText)
         }
         else
         {
-            dezena  = dezenas[n2];
+            dezena  = `${dezenas[n2]}`;
+
+            if (und == 'zero') 
+            {
+                und = '';
+            }
+            else
+            {
+                dezena = `${dezena} e`;
+            }
             
-            if (und == 'zero') und = '';
-            
-            dezena  = `${dezena} e`;
             centena = `${centena} e`;  
         }
             
@@ -126,12 +136,12 @@ function trata4Numeros(numberText)
     let n3 = numberText.charAt(2); 
     let n4 = numberText.charAt(3); 
     
-    extensive = (n1 == 1) ? milhar[n1] : `${unidades[n1]} mil`;
+    extensive = (n1 == 1) ? `${milhar[n1]} e` : `${unidades[n1]} mil e`;
 
     if ( n2 > 0 || n3 > 0 || n4 > 0)
     {
         let casasRestantes = trata3Numeros(n2+n3+n4);
-        
+       
         extensive = `${extensive} ${casasRestantes}`;
     }
    

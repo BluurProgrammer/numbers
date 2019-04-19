@@ -2,8 +2,8 @@ const toExtensive = require('./extensiveNumber');
 const express     = require('express');
 const app         = express();
 
-const port = 3000;
-const host = 'localhost';
+const PORT = 3000;
+const HOST = '0.0.0.0';
 
 app.get('/:number', (req,res) => 
 {
@@ -16,8 +16,8 @@ app.get('/:number', (req,res) =>
     res.end(json);
 });
 
-app.listen(port, host , () => 
+app.listen(PORT, HOST , () => 
 {
-    console.log(`App listening at http://${host}:${port}`);
+    console.log(`App listening at http://${HOST}:${PORT}`);
 })
 
