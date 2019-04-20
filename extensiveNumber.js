@@ -136,13 +136,12 @@ function trata4Numeros(numberText)
     let n3 = numberText.charAt(2); 
     let n4 = numberText.charAt(3); 
     
-    extensive = (n1 == 1) ? `${milhar[n1]} e` : `${unidades[n1]} mil e`;
-
+    extensive = (n1 == 1) ? `${milhar[n1]} ` : `${unidades[n1]} mil `;
+    
     if ( n2 > 0 || n3 > 0 || n4 > 0)
     {
         let casasRestantes = trata3Numeros(n2+n3+n4);
-       
-        extensive = `${extensive} ${casasRestantes}`;
+        extensive = `${extensive} e ${casasRestantes}`;
     }
    
     return extensive;
@@ -172,7 +171,7 @@ function trata5Numeros(numberText)
 
 function removeConectorEDuplicado(expressao)
 {
-    let expressaoSemEDuplicado = expressao.replace(/\s+e\s+e/g, 'e');
+    let expressaoSemEDuplicado = expressao.replace(/\s+e\s+e/g, ' e ');
     let expressaoLimpa         = expressaoSemEDuplicado.replace(/\s{2,}/g, ' ');
     return expressaoLimpa;
 }
