@@ -40,6 +40,8 @@ Caso execute a aplicação através do DOCKER utilize a configuração do HOST 0
 
 # Exemplos de uso:
 
+Troque o endereço de acordo com as suas configurações locais onde o servidor está sendo executado em localhost, 127.0.0.1 ou 192.168.99.100.
+
 Retorno: em formato JSON.
 
 Utilizando browser (GET):
@@ -72,4 +74,4 @@ Retorno: { "extenso": "menos mil e quarenta e dois" }
 
 # min -99999 | max 99999
 
-#We Will... Whatever It Takes!
+# We Will... Whatever It Takes!
