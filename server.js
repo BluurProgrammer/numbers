@@ -3,7 +3,7 @@ const express     = require('express');
 const app         = express();
 
 const PORT = 3000;
-const HOST = '0.0.0.0'; // ou localhost
+const HOST = '0.0.0.0'; // localhost ou 127.0.0.1
 
 app.get('/:number', (req,res) => 
 {

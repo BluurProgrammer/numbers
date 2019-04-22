@@ -1,29 +1,29 @@
-const unidades = ['zero', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez', 'onze', 'doze', 'treze', 'quatorze', 'quinze', 'dezesseis', 'dezessete', 'dezoito', 'dezenove'];
-const dezenas  = ['', 'dez', 'vinte', 'trinta', 'quarenta', 'cinquenta', 'sessenta', 'setenta','oitenta', 'noventa'];
-const centenas = ['','cento', 'duzentos', 'trezentos', 'quatrocentos', 'quinhentos', 'seiscentos','setecentos', 'oitocentos', 'novecentos'];
-const milhar   = ['', 'mil'];
+const UNIDADES = ['zero', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez', 'onze', 'doze', 'treze', 'quatorze', 'quinze', 'dezesseis', 'dezessete', 'dezoito', 'dezenove'];
+const DEZENAS  = ['', 'dez', 'vinte', 'trinta', 'quarenta', 'cinquenta', 'sessenta', 'setenta','oitenta', 'noventa'];
+const CENTENAS = ['','cento', 'duzentos', 'trezentos', 'quatrocentos', 'quinhentos', 'seiscentos','setecentos', 'oitocentos', 'novecentos'];
+const MILHAR   = ['', 'mil'];
 
-const minNumber = -99999;
-const maxNumber = 99999;
-const reg       = /^-?\d+$/;
+const MIN_NUMBER = -99999;
+const MAX_NUMBER = 99999;
+const REG        = /^-?\d+$/;
 
 function toExtensive(number)
 {   
-    if ( !reg.test(number) )
+    if ( !REG.test(number) )
     {
         return `O valor ${number} deve conter apenas números`;
     }
 
-    if ( (number < minNumber) || (number > maxNumber) )
+    if ( (number < MIN_NUMBER) || (number > MAX_NUMBER) )
     {
-        return `O valor deve estar entre ${minNumber} à ${maxNumber}`;
+        return `O valor deve estar entre ${MIN_NUMBER} à ${MAX_NUMBER}`;
     }
 
     let negativo = (number < 0) ? 'menos' : '';
 
     number = Math.abs(number);
 
-    const numberText = number.toString();``
+    const numberText = number.toString();
     
     let extensive = '';
 
@@ -50,15 +50,15 @@ function trata2Numeros(numberText)
 
     if (number <= 19)
     {
-        extensive += `${unidades[parseInt(number)]}`;
+        extensive += `${UNIDADES[parseInt(number)]}`;
     }
     else
     {
         let n1 = numberText.charAt(0); 
         let n2 = numberText.charAt(1);
         
-        let und    = `${dezenas[n1]}`;
-        let dezena = `${unidades[n2]}`;
+        let und    = `${DEZENAS[n1]}`;
+        let dezena = `${UNIDADES[n2]}`;
 
         if (dezena != '')
         {
@@ -89,25 +89,23 @@ function trata3Numeros(numberText)
 
     if ( (n1 > 0 && n1 < 10) && n2 == 0 && n3 == 0)
     {
-        extensive = (n1 == 1) ? 'cem' : `${centenas[n1]}`;   
+        extensive = (n1 == 1) ? 'cem' : `${CENTENAS[n1]}`;   
     }
     else
     {
-        let centena = `${centenas[n1]}`;
-            
+        let centena = `${CENTENAS[n1]}`;
         let dezena  = parseInt(`${n2}${n3}`);
-
-        let und     = unidades[n3];
+        let und     = UNIDADES[n3];
             
         if (dezena < 20)
         {
-            dezena  = unidades[dezena];
+            dezena  = UNIDADES[dezena];
             centena = `${centena} e`;
             und     = '';
         }
         else
         {
-            dezena  = `${dezenas[n2]}`;
+            dezena  = `${DEZENAS[n2]}`;
 
             if (und == 'zero') 
             {
@@ -136,7 +134,7 @@ function trata4Numeros(numberText)
     let n3 = numberText.charAt(2); 
     let n4 = numberText.charAt(3); 
     
-    extensive = (n1 == 1) ? `${milhar[n1]} ` : `${unidades[n1]} mil `;
+    extensive = (n1 == 1) ? `${MILHAR[n1]} ` : `${UNIDADES[n1]} mil `;
     
     if ( n2 > 0 || n3 > 0 || n4 > 0)
     {
